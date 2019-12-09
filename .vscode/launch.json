@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Window",
+            "request": "launch",
+            "mainClass": "Window",
+            "projectName": "Great-Balls-of-Fire_1533130d"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - BouncingBall",
+            "request": "launch",
+            "mainClass": "BouncingBall",
+            "projectName": "Great-Balls-of-Fire_1533130d"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "Great-Balls-of-Fire_1533130d"
+        }
+    ]
+}
