@@ -5,6 +5,13 @@
             "name": "CodeLens (Launch) - Window",
             "request": "launch",
             "mainClass": "Window",
+            "projectName": "Great-Balls-of-Fire_bbdf5fa0"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Window",
+            "request": "launch",
+            "mainClass": "Window",
             "projectName": "Great-Balls-of-Fire_1533130d"
         },
         {
