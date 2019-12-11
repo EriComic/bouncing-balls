@@ -3,41 +3,46 @@ import java.awt.*;
 
 public class leBall {
     
-    private int posX, posY, size;
+    private int posX, posY, size, windowHeight, windowWidth;
     private Color color;
 
-    private int vx = 5;
-    private int vy = 5;
 
-    public leBall(int posX, int posY, int size, Color color, int vx, int vy) {
+    private double vx = 5;
+    private double vy = 5;
+
+
+    public leBall(int posX, int posY, int size, Color color, double vx, double vy, int windowHeight, int windowWidth) {
         this.posX = posX;
         this.posY = posY;
         this.size = size;
         this.color = color;
         this.vx = vx;
         this.vy = vy;
+        this.windowHeight = windowHeight;
+        this.windowWidth = windowWidth;
     }
+    public JFrame mainFrame;
 
     void update() {
 
-        if (posX > mainFrame.getWidth() || posX < 0) {
+        if (posX > windowWidth || posX < 0) {
             vx *= -1;
         }
 
-        if (posY > mainFrame.getHeight() || posY < 0) {
+        if (posY > windowHeight || posY < 0) {
             vy *= -1;
         }
 
-        if (posX > mainFrame.getWidth()) {
-            posX = mainFrame.getWidth();
+        if (posX > windowWidth) {
+            posX = windowWidth;
         }
 
         if (posX < 0) {
             posX = 0;
         }
 
-        if (posY > mainFrame.getHeight()) {
-            posY = mainFrame.getHeight();
+        if (posY > windowHeight) {
+            posY = windowHeight;
         }
 
         if (posY < 0) {

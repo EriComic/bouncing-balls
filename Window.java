@@ -9,17 +9,14 @@ public class Window {
     }
 }
 
-class sizeConstants {
-    public 
-}
 
 class Program {
     public JFrame mainFrame;
     private DrawPanel drawPanel;
     private java.util.List<leBall> balls;
 
-    public int windowWidth = 640;
-    public int windowHeight = 480;
+    public int windowWidth = 960;
+    public int windowHeight = 550;
     private String windowLabel = "Bounce Program";
 
     void run() {
@@ -36,13 +33,15 @@ class Program {
                     (int) Math.floor(Math.random() * 20) + 10,
                     /* Random RGB colors*/
                     new Color(
-                            (int) Math.floor((Math.random() * 256)),
-                            (int) Math.floor((Math.random() * 256)),
-                            (int) Math.floor((Math.random() * 256))
+                        (int) Math.floor((Math.random() * 256)),
+                        (int) Math.floor((Math.random() * 256)),
+                        (int) Math.floor((Math.random() * 256))
                     ),
-                    /* Random velocities from -5 to 5 */
-                    (int) Math.floor((Math.random() * 10) - 5),
-                    (int) Math.floor((Math.random() * 10) - 5)
+                    // Random velocities from -5 to 5 
+                    Math.floor((Math.random() * 10) - 5),
+                    Math.floor((Math.random() * 10) - 5),
+                    (windowHeight),
+                    (windowWidth) 
             );
 
             balls.add(ball);
@@ -81,61 +80,6 @@ class Program {
             for (leBall b: balls) {
                 b.draw(graphics);
             }
-
         }
-        repaint();
     }
-
-    // class Ball {
-    //     private int posX, posY, size;
-    //     private Color color;
-
-    //     private int vx = 5;
-    //     private int vy = 5;
-
-    //     public Ball(int posX, int posY, int size, Color color, int vx, int vy) {
-    //         this.posX = posX;
-    //         this.posY = posY;
-    //         this.size = size;
-    //         this.color = color;
-    //         this.vx = vx;
-    //         this.vy = vy;
-    //     }
-
-    //     void update() {
-
-    //         if (posX > mainFrame.getWidth() || posX < 0) {
-    //             vx *= -1;
-    //         }
-
-    //         if (posY > mainFrame.getHeight() || posY < 0) {
-    //             vy *= -1;
-    //         }
-
-    //         if (posX > mainFrame.getWidth()) {
-    //             posX = mainFrame.getWidth();
-    //         }
-
-    //         if (posX < 0) {
-    //             posX = 0;
-    //         }
-
-    //         if (posY > mainFrame.getHeight()) {
-    //             posY = mainFrame.getHeight();
-    //         }
-
-    //         if (posY < 0) {
-    //             posY = 0;
-    //         }
-
-    //         this.posX += vx;
-    //         this.posY += vy;
-
-    //     }
-
-    //     void draw(Graphics g) {
-    //         g.setColor(color);
-    //         g.fillOval(posX, posY, size, size);
-    //     }
-    // }
 }
