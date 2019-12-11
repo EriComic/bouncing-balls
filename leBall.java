@@ -1,9 +1,8 @@
-import javax.swing.*;
 import java.awt.*;
 
 public class leBall {
     
-    private int posX, posY, size, windowHeight, windowWidth;
+    private int positionX, positionY, size, windowHeight, windowWidth;
     private Color color;
 
 
@@ -11,9 +10,9 @@ public class leBall {
     private double vy = 5;
 
 
-    public leBall(int posX, int posY, int size, Color color, double vx, double vy, int windowHeight, int windowWidth) {
-        this.posX = posX;
-        this.posY = posY;
+    public leBall(int positionX, int positionY, int size, Color color, double vx, double vy, int windowHeight, int windowWidth) {
+        this.positionX = positionX;
+        this.positionY = positionY;
         this.size = size;
         this.color = color;
         this.vx = vx;
@@ -21,41 +20,41 @@ public class leBall {
         this.windowHeight = windowHeight;
         this.windowWidth = windowWidth;
     }
-    public JFrame mainFrame;
 
     void update() {
+        
 
-        if (posX > windowWidth || posX < 0) {
-            vx *= -1;
+        if (positionX > windowWidth || positionX < 0) {
+            vx *= -1.1;
         }
 
-        if (posY > windowHeight || posY < 0) {
-            vy *= -1;
+        if (positionY > windowHeight || positionY < 0) {
+            vy *= -1.1;
         }
 
-        if (posX > windowWidth) {
-            posX = windowWidth;
+        if (positionX > windowWidth) {
+            positionX = windowWidth;
         }
 
-        if (posX < 0) {
-            posX = 0;
+        if (positionX < 0) {
+            positionX = 0;
         }
 
-        if (posY > windowHeight) {
-            posY = windowHeight;
+        if (positionY > windowHeight) {
+            positionY = windowHeight;
         }
 
-        if (posY < 0) {
-            posY = 0;
+        if (positionY < 0) {
+            positionY = 0;
         }
 
-        this.posX += vx;
-        this.posY += vy;
+        this.positionX += vx;
+        this.positionY += vy;
 
     }
 
     void draw(Graphics g) {
         g.setColor(color);
-        g.fillOval(posX, posY, size, size);
+        g.fillOval(positionX, positionY, size, size);
     }
 }

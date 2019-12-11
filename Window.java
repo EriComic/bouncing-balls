@@ -5,23 +5,23 @@ import java.util.ArrayList;
 public class Window {
     public static void main(String[] args) {
         Program program = new Program();
-        program.run();
+        program.runner();
     }
 }
 
 
 class Program {
-    public JFrame mainFrame;
+    public JFrame ballWindow;
     private DrawPanel drawPanel;
-    private java.util.List<leBall> balls;
+    private java.util.List<leBall> ballCollection;
 
-    public int windowWidth = 960;
-    public int windowHeight = 550;
-    private String windowLabel = "Bounce Program";
+    public int windowWidth = 900;
+    public int windowHeight = 900;
+    private String windowLabel = "Collection of bouncing balls";
 
-    void run() {
+    void runner() {
 
-        balls = new ArrayList<>();
+        ballCollection = new ArrayList<>();
 
         /* Generate balls */
         for (int i = 0; i < 50; i++) {
@@ -29,7 +29,7 @@ class Program {
                     /* Random positions from 0 to windowWidth or windowHeight */
                     (int) Math.floor(Math.random() * windowWidth),
                     (int) Math.floor(Math.random() * windowHeight),
-                    /* Random size from 10 to 30 */
+                    // Random size from 10 to 30 
                     (int) Math.floor(Math.random() * 20) + 10,
                     /* Random RGB colors*/
                     new Color(
@@ -44,21 +44,21 @@ class Program {
                     (windowWidth) 
             );
 
-            balls.add(ball);
+            ballCollection.add(ball);
         }
 
         /* Initialize program */
-        mainFrame = new JFrame();
+        ballWindow = new JFrame();
         drawPanel = new DrawPanel();
-        mainFrame.getContentPane().add(drawPanel);
-        mainFrame.setTitle(windowLabel);
-        mainFrame.setSize(windowWidth, windowHeight);
-        mainFrame.setVisible(true);
-        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ballWindow.getContentPane().add(drawPanel);
+        ballWindow.setTitle(windowLabel);
+        ballWindow.setSize(windowWidth, windowHeight);
+        ballWindow.setVisible(true);
+        ballWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         while (true) {
-            for (leBall b: balls) {
-                b.update();
+            for (leBall theBallsLol: ballCollection) {
+                theBallsLol.update();
             }
 
             /* Give Swing 10 milliseconds to see the update! */
@@ -68,7 +68,7 @@ class Program {
                 e.printStackTrace();
             }
 
-            mainFrame.repaint();
+            ballWindow.repaint();
         }
     }
 
@@ -77,7 +77,7 @@ class Program {
         public void paintComponent(Graphics graphics) {
             super.paintComponent(graphics);
 
-            for (leBall b: balls) {
+            for (leBall b: ballCollection) {
                 b.draw(graphics);
             }
         }
