@@ -4,64 +4,63 @@ import java.util.ArrayList;
 
 public class Window {
     public static void main(String[] args) {
-        Program program = new Program();
-        program.runner();
+        BouncingBalls mainClass = new BouncingBalls();
+        mainClass.mainClass();
     }
 }
 
-
-class Program {
+class BouncingBalls {
     public JFrame ballWindow;
     private DrawPanel drawPanel;
     private java.util.List<leBall> ballCollection;
 
-    public int windowWidth = 900;
-    public int windowHeight = 900;
-    private String windowLabel = "Collection of bouncing balls";
+    public int windowWidth = 800;
+    public int windowHeight = 600;
 
-    void runner() {
+    void mainClass() {
 
         ballCollection = new ArrayList<>();
 
-        /* Generate balls */
-        for (int i = 0; i < 50; i++) {
+        // Generates 45 balls with randomized characteristics and adds them to an ArrayList
+        for (int i = 0; i < 45; i++) {
             leBall ball = new leBall(
                     /* Random positions from 0 to windowWidth or windowHeight */
                     (int) Math.floor(Math.random() * windowWidth),
                     (int) Math.floor(Math.random() * windowHeight),
-                    // Random size from 10 to 30 
-                    (int) Math.floor(Math.random() * 20) + 10,
-                    /* Random RGB colors*/
+                    // Size randomization from 10 to 50
+                    (int) Math.floor(Math.random() * 40) + 10,
+                    // Random colors using RGB
                     new Color(
                         (int) Math.floor((Math.random() * 256)),
                         (int) Math.floor((Math.random() * 256)),
                         (int) Math.floor((Math.random() * 256))
                     ),
-                    // Random velocities from -5 to 5 
-                    Math.floor((Math.random() * 10) - 5),
-                    Math.floor((Math.random() * 10) - 5),
+                    // Random velocities from -10 to 10 
+                    Math.floor((Math.random() * 20) - 10),
+                    Math.floor((Math.random() * 20) - 10),
                     (windowHeight),
                     (windowWidth) 
             );
-
             ballCollection.add(ball);
         }
 
-        /* Initialize program */
+        // Start JFrame and initialize basic parameters
         ballWindow = new JFrame();
         drawPanel = new DrawPanel();
         ballWindow.getContentPane().add(drawPanel);
-        ballWindow.setTitle(windowLabel);
+        ballWindow.setTitle("Buncha' balls");
         ballWindow.setSize(windowWidth, windowHeight);
-        ballWindow.setVisible(true);
         ballWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ballWindow.setVisible(true);
 
+
+        //Updating ball position
         while (true) {
             for (leBall theBallsLol: ballCollection) {
                 theBallsLol.update();
             }
 
-            /* Give Swing 10 milliseconds to see the update! */
+            //Determines visual update speed
             try {
                 Thread.sleep(10);
             } catch (InterruptedException e) {
@@ -72,6 +71,7 @@ class Program {
         }
     }
 
+    //Introduces graphics and calls the draw method from leBall.java. Draws all ball in ArrayList
     class DrawPanel extends JPanel {
         @Override
         public void paintComponent(Graphics graphics) {

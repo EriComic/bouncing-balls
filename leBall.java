@@ -1,14 +1,6 @@
 import java.awt.*;
 
 public class leBall {
-    
-    private int positionX, positionY, size, windowHeight, windowWidth;
-    private Color color;
-
-
-    private double vx = 5;
-    private double vy = 5;
-
 
     public leBall(int positionX, int positionY, int size, Color color, double vx, double vy, int windowHeight, int windowWidth) {
         this.positionX = positionX;
@@ -20,16 +12,22 @@ public class leBall {
         this.windowHeight = windowHeight;
         this.windowWidth = windowWidth;
     }
+    
+    private double vx = 5;
+    private double vy = 5;
+    private int positionX, positionY; 
+    private int size;
+    private int windowHeight, windowWidth;
+    private Color color;
 
-    void update() {
-        
+    void update() {    
 
         if (positionX > windowWidth || positionX < 0) {
-            vx *= -1.1;
+            vx *= -1;
         }
 
         if (positionY > windowHeight || positionY < 0) {
-            vy *= -1.1;
+            vy *= -1;
         }
 
         if (positionX > windowWidth) {
@@ -53,6 +51,7 @@ public class leBall {
 
     }
 
+    // Assigning color, position and size to the ball, is called from Window.java
     void draw(Graphics g) {
         g.setColor(color);
         g.fillOval(positionX, positionY, size, size);

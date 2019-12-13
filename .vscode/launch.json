@@ -5,7 +5,11 @@
             "name": "CodeLens (Launch) - Window",
             "request": "launch",
             "mainClass": "Window",
+<<<<<<< Updated upstream
             "projectName": "Great-Balls-of-Fire_bbdf5fa0"
+=======
+            "projectName": "Great-Balls-of-Fire_928f7b1f"
+>>>>>>> Stashed changes
         },
         {
             "type": "java",
