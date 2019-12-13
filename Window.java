@@ -21,8 +21,9 @@ class BouncingBalls {
 
         ballCollection = new ArrayList<>();
 
-        // Generates 45 balls with randomized characteristics and adds them to an ArrayList
-        for (int i = 0; i < 45; i++) {
+        // Generates 42 balls with randomized characteristics and adds them to an ArrayList. 
+        //# MeaningOfLife
+        for (int i = 0; i < 42; i++) {
             leBall ball = new leBall(
                     /* Random positions from 0 to windowWidth or windowHeight */
                     (int) Math.floor(Math.random() * windowWidth),
