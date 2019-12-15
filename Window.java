@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Window {
     public static void main(String[] args) {
         BouncingBalls mainClass = new BouncingBalls();
-        mainClass.mainClass();
+        mainClass.start();
     }
 }
 
@@ -14,10 +14,10 @@ class BouncingBalls {
     private DrawPanel drawPanel;
     private java.util.List<leBall> ballCollection;
 
-    public int windowWidth = 800;
+    public int windowWidth = 1000;
     public int windowHeight = 600;
 
-    void mainClass() {
+    void start() {
 
         ballCollection = new ArrayList<>();
 

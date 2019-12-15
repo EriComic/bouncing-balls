@@ -47,7 +47,16 @@ public class leBall {
         }
 
         this.positionX += vx;
-        this.positionY += vy;
+
+        if (vy > 1) {
+            this.positionY += ()
+        }
+
+        /*Use some if statements to do a different formula for
+        vy gravity depending on the current value of 
+        vy*/
+        
+        //this.positionY += ((vy - (vy * .99995);
 
     }
 
