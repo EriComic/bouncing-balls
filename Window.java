@@ -14,20 +14,17 @@ class BouncingBalls {
     private DrawPanel drawPanel;
     private java.util.List<leBall> ballCollection;
 
-    public int windowWidth = 1000;
-    public int windowHeight = 600;
-
     void start() {
 
         ballCollection = new ArrayList<>();
 
         // Generates 42 balls with randomized characteristics and adds them to an ArrayList. 
-        //# MeaningOfLife
+        //#MeaningOfLife
         for (int i = 0; i < 42; i++) {
             leBall ball = new leBall(
-                    /* Random positions from 0 to windowWidth or windowHeight */
-                    (int) Math.floor(Math.random() * windowWidth),
-                    (int) Math.floor(Math.random() * windowHeight),
+                    /* Random positions from 0 to window width or window height */
+                    Math.floor(Math.random() * 1000),
+                    Math.floor(Math.random() * 600),
                     // Size randomization from 10 to 50
                     (int) Math.floor(Math.random() * 40) + 10,
                     // Random colors using RGB
@@ -37,10 +34,10 @@ class BouncingBalls {
                         (int) Math.floor((Math.random() * 256))
                     ),
                     // Random velocities from -10 to 10 
+                    Math.floor((Math.random() * 5) - 2.5),
                     Math.floor((Math.random() * 20) - 10),
-                    Math.floor((Math.random() * 20) - 10),
-                    (windowHeight),
-                    (windowWidth) 
+                    (600),
+                    (1000) 
             );
             ballCollection.add(ball);
         }
@@ -50,7 +47,7 @@ class BouncingBalls {
         drawPanel = new DrawPanel();
         ballWindow.getContentPane().add(drawPanel);
         ballWindow.setTitle("Buncha' balls");
-        ballWindow.setSize(windowWidth, windowHeight);
+        ballWindow.setSize(1000, 600);
         ballWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ballWindow.setVisible(true);
 

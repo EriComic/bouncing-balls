@@ -2,7 +2,7 @@ import java.awt.*;
 
 public class leBall {
 
-    public leBall(int positionX, int positionY, int size, Color color, double vx, double vy, int windowHeight, int windowWidth) {
+    public leBall(Double positionX, Double positionY, int size, Color color, double vx, double vy, int windowHeight, int windowWidth) {
         this.positionX = positionX;
         this.positionY = positionY;
         this.size = size;
@@ -15,10 +15,12 @@ public class leBall {
     
     private double vx = 5;
     private double vy = 5;
-    private int positionX, positionY; 
+    private double positionX, positionY; 
     private int size;
     private int windowHeight, windowWidth;
     private Color color;
+    private double time = 0.01;
+    private double gravity = -120;
 
     void update() {    
 
@@ -48,21 +50,14 @@ public class leBall {
 
         this.positionX += vx;
 
-        if (vy > 1) {
-            this.positionY += ()
-        }
-
-        /*Use some if statements to do a different formula for
-        vy gravity depending on the current value of 
-        vy*/
-        
-        //this.positionY += ((vy - (vy * .99995);
+        this.positionY = this.positionY + time * vy - gravity * (time * time / 2);
+        vy = vy - gravity * time;
 
     }
 
     // Assigning color, position and size to the ball, is called from Window.java
     void draw(Graphics g) {
         g.setColor(color);
-        g.fillOval(positionX, positionY, size, size);
+        g.fillOval((int)positionX, (int)positionY, size, size);
     }
 }
