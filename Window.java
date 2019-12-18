@@ -14,17 +14,19 @@ class BouncingBalls {
     private DrawPanel drawPanel;
     private java.util.List<leBall> ballCollection;
 
+    private int topWindowOffset = 30;
+
     void start() {
 
         ballCollection = new ArrayList<>();
 
         // Generates 42 balls with randomized characteristics and adds them to an ArrayList. 
-        //#MeaningOfLife
+        // #MeaningOfLife
         for (int i = 0; i < 42; i++) {
             leBall ball = new leBall(
-                    /* Random positions from 0 to window width or window height */
-                    Math.floor(Math.random() * 1000),
-                    Math.floor(Math.random() * 600),
+                    /* Random spawn positions; window size - 100 */
+                    Math.floor(Math.random() * 900),
+                    Math.floor((Math.random() * 500)),
                     // Size randomization from 10 to 50
                     (int) Math.floor(Math.random() * 40) + 10,
                     // Random colors using RGB
@@ -36,7 +38,7 @@ class BouncingBalls {
                     // Random velocities from -10 to 10 
                     Math.floor((Math.random() * 5) - 2.5),
                     Math.floor((Math.random() * 20) - 10),
-                    (600),
+                    (600 - topWindowOffset), //Provide 30 less in height to compensate for top window border, may vary from OS to OS
                     (1000) 
             );
             ballCollection.add(ball);

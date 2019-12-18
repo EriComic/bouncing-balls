@@ -24,16 +24,24 @@ public class leBall {
 
     void update() {    
 
-        if (positionX > windowWidth || positionX < 0) {
+        if (positionX < 0) {
+            vx *= -1;
+        }
+        
+        if (positionX > (windowWidth - size)) {
             vx *= -1;
         }
 
-        if (positionY > windowHeight || positionY < 0) {
+        if (positionY < (0)) {
+            vy *= -1;
+        }
+
+        if (positionY > (windowHeight - size)) {
             vy *= -1;
         }
 
         if (positionX > windowWidth) {
-            positionX = windowWidth;
+            positionX = windowWidth - size;
         }
 
         if (positionX < 0) {
@@ -41,15 +49,16 @@ public class leBall {
         }
 
         if (positionY > windowHeight) {
-            positionY = windowHeight;
+            positionY = (windowHeight);
         }
 
         if (positionY < 0) {
-            positionY = 0;
+            positionY = (0 - size);
         }
 
         this.positionX += vx;
 
+        //gravity
         this.positionY = this.positionY + time * vy - gravity * (time * time / 2);
         vy = vy - gravity * time;
 
