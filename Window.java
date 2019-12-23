@@ -24,27 +24,24 @@ class BouncingBalls {
         // #MeaningOfLife
         for (int i = 0; i < 42; i++) {
             leBall ball = new leBall(
-                    /* Random spawn positions; window size - 100 */
+                    // Random spawn positions; window size - 100 
                     Math.floor(Math.random() * 900),
                     Math.floor((Math.random() * 500)),
                     // Size randomization from 10 to 50
                     (int) Math.floor(Math.random() * 40) + 10,
                     // Random colors using RGB
                     new Color(
-                        (int) Math.floor((Math.random() * 256)),
-                        (int) Math.floor((Math.random() * 256)),
-                        (int) Math.floor((Math.random() * 256))
-                    ),
-                    // Random velocities from -10 to 10 
-                    Math.floor((Math.random() * 5) - 2.5),
-                    Math.floor((Math.random() * 20) - 10),
+                        (int) Math.floor((Math.random() * 256)), (int) Math.floor((Math.random() * 256)), (int) Math.floor((Math.random() * 256))),
+                    // Random velocities from -4 - 4 (X axis) and from -7.5 -7.5 (y axis)
+                    Math.floor((Math.random() * 8) - 4),
+                    Math.floor((Math.random() * 15) - 7.5),
                     (600 - topWindowOffset), //Provide 30 less in height to compensate for top window border, may vary from OS to OS
                     (1000) 
             );
             ballCollection.add(ball);
         }
 
-        // Start JFrame and initialize basic parameters
+        // Start JFrame and initialize basic variables and parameters
         ballWindow = new JFrame();
         drawPanel = new DrawPanel();
         ballWindow.getContentPane().add(drawPanel);
@@ -72,13 +69,13 @@ class BouncingBalls {
     }
 
     //Introduces graphics and calls the draw method from leBall.java. Draws all ball in ArrayList
-    class DrawPanel extends JPanel {
+    class DrawPanel extends JPanel {    
         @Override
         public void paintComponent(Graphics graphics) {
             super.paintComponent(graphics);
 
-            for (leBall b: ballCollection) {
-                b.draw(graphics);
+            for (leBall theBallsLol: ballCollection) {
+                theBallsLol.draw(graphics);
             }
         }
     }

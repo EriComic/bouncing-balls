@@ -13,14 +13,15 @@ public class leBall {
         this.windowWidth = windowWidth;
     }
     
+    //Initialize paramters from main java file to ball file, using the "this" statement
     private double vx = 5;
     private double vy = 5;
     private double positionX, positionY; 
     private int size;
     private int windowHeight, windowWidth;
     private Color color;
-    private double time = 0.01;
-    private double gravity = -120;
+    private double time = 0.01; //Time variable is gained from our visual update speed of 10 ms
+    private double gravity = -300;
 
     void update() {    
 
