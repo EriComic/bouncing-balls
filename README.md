@@ -1,1 +1,1 @@
-# Great-Balls-of-Fire
+# Bouncing balls simulation
